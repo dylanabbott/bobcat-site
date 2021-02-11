@@ -1,0 +1,177 @@
+// Bobc.at test stylesheet
+
+@use '_normalize';
+@use '_fonts';
+
+// Breakpoints
+
+$desktop: "(min-width: 960px)";
+$tablet: "(min-width: 768px) and (max-width: 959px)";
+$phone: "(max-width: 767px)";
+
+
+
+$main-color: rgba(62, 192, 235, 1);
+$main-color-light: rgba(148, 212, 241, 1);
+$main-color-lighter: rgba(205, 233, 247, 1);
+$main-color-dark: rgba(43, 140, 173, 1);
+$main-color-darker: rgba(28, 92, 113, 1);
+$main-bg-light: rgba(15, 48, 59, 1);
+$main-bg: rgba(9, 29, 35, 1);
+
+@mixin body-text {
+font-family: brother-1816-printed, sans-serif;
+font-weight: 200;
+font-style: normal;
+
+color: $main-color-light;
+}
+
+html {
+    box-sizing: border-box;
+
+    @media #{$tablet} {
+        font-size: 87.5%;
+    }
+
+    @media #{$phone} {
+        font-size: 75%;
+    }
+}
+
+* {
+    padding-inline-start: 0;
+}
+
+body {
+    @include body-text; 
+    background: $main-bg;
+}
+
+a {
+    text-decoration: underline;
+    text-decoration-thickness: 6px;
+    transition: color 0.5s, text-decoration-color 0.8s;
+    &:link {
+        color: $main-color-light;
+        text-decoration-color: transparentize($main-color-light, 1);
+        }
+    &:hover {
+        color: $main-color-lighter;
+        text-decoration-color: transparentize($main-color-lighter, 0);
+    }
+
+    &:active {
+        color: #ffffff;
+        text-decoration-color: transparentize(#ffffff, 0);
+    }
+
+    &:visited {
+        color: $main-color-darker;
+        text-decoration-color: transparentize($main-color-darker, 1);
+    }
+}
+
+p {
+    max-width: 65ch;
+}
+
+header {
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    background-image: url("../img/black-lodge-live-bw.jpg");
+    background-position: center center;
+    background-size: cover;
+
+    @media #{$tablet} {
+        height: 50vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    @media #{$phone} {
+        height: 50vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+}
+
+nav {
+    ul {
+        li {
+            font-size: 1.25rem;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+    }
+   @media #{$phone} {
+    background-image: linear-gradient($main-bg-light, $main-color-darker);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        li {
+            margin-right: 0;
+            font-size: 2.441rem;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transform: translateY(750%);
+            transition: transform 0.3s ease-in;
+        }
+    }
+   }
+}
+
+#menu-button {
+    display: none;
+    font-size: 7.451rem;
+    font-weight: 700;
+    z-index: 100;
+    text-decoration: none;
+
+    @media #{$phone} {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 2rem;
+        transition: transform 0.1s ease-in;
+    }
+}
+
+.rotated {
+    transform: rotate(45deg);
+}
+
+#menu {
+    transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.menu-mobile-show {
+    visibility: visible;
+    opacity: 1;
+    li {
+        transform: translateY(0);
+    }
+}
+
+main {
+    padding: 0.5rem 2rem;
+}
