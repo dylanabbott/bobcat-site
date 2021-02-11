@@ -531,10 +531,6 @@ a:active {
   color: #ffffff;
   text-decoration-color: white;
 }
-a:visited {
-  color: #1c5c71;
-  text-decoration-color: rgba(28, 92, 113, 0);
-}
 
 p {
   max-width: 65ch;

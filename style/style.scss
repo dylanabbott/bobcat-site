@@ -66,10 +66,10 @@ a {
         text-decoration-color: transparentize(#ffffff, 0);
     }
 
-    &:visited {
-        color: $main-color-darker;
-        text-decoration-color: transparentize($main-color-darker, 1);
-    }
+    // &:visited {
+    //     color: $main-color-darker;
+    //     text-decoration-color: transparentize($main-color-darker, 1);
+    // }
 }
 
 p {
